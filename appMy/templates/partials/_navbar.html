@@ -1,0 +1,53 @@
+
+<div id="menuHolder">
+    <div role="navigation" class="sticky-top border-bottom border-top" id="mainNavigation">
+      <div class="flexMain">
+        <div class="flex2">
+          <button class="whiteLink siteLink" style="border-right:1px solid #eaeaea" onclick="menuToggle()"><i class="fas fa-bars me-2"></i> MENU</button>
+        </div>
+        <div class="flex3 text-center" id="siteBrand">
+          ISA ENES USLU
+        </div>
+  
+        <div class="flex2 text-end d-block d-md-none">
+          <button class="whiteLink siteLink"><i class="fas fa-search"></i></button>
+        </div>
+  
+        <div class="flex2 text-end d-none d-md-block">
+          
+          {% if request.user.is_authenticated %}
+          <div class="btn-group">
+            <button type="button" style="background-color: #232323; padding:24px;" class="btn btn-dark dropdown-toggle me-4" data-mdb-dropdown-init data-mdb-ripple-init aria-expanded="false">
+             {{ request.user.username }}
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">{{ request.user.email }}</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="{% url 'logoutPage' %}">Çıkış Yap</a></li>
+            </ul>
+          </div>
+          {% else %}
+          <a href="{% url 'registerPage' %}"><button class="whiteLink siteLink">KAYIT OL</button></a>
+          <a href="{% url 'loginPage' %}"><button class="blackLink siteLink">Giriş Yap</button></a>
+          {% endif %}
+            
+        </div>
+      </div>
+    </div>
+  
+    <div id="menuDrawer">
+      <div class="p-4 border-bottom">
+        <div class='row'>
+         
+          <div class="col text-end ">
+            <i class="fas fa-times" role="btn" onclick="menuToggle()"></i>
+          </div>
+        </div>
+      </div>
+      <div>
+        <a href="/" class="nav-menu-item"><i class="fas fa-home me-3"></i>Ana Sayfa</a>
+        <a href="{% url 'loginPage' %}" class="nav-menu-item"><i class="fas fa-user me-3"></i>Giriş</a>
+        <a href="{% url 'registerPage' %}" class="nav-menu-item"><i class="fas fa-hand me-3"></i>Kayıt Ol</a>
+      </div>
+    </div>
+  </div>

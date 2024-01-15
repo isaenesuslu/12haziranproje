@@ -1,0 +1,73 @@
+<!DOCTYPE html> {% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    {% include 'partials/_navbar.html' %}
+
+    
+    
+    
+    
+    
+    <div class="forbackground text-center text-white d-flex justify-content-center align-items-center" style="height: 100vh;">
+      <div data-aos="fade-up" data-aos-duration="1000">
+        {% for i in messages %}
+        <div class="d-flex justify-content-center" style="position: absolute; top:0; right:0">
+          <div class="alert alert-dismissible fade show bg-{{ i.tags }} text-center" style="width: fit-content; height:fit-content;" role="alert" data-mdb-alert-init data-mdb-color="{{ i.tags }}">
+            {{ i }}
+            <button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>
+        {% endfor %}
+
+        <div style="background-color: rgba(84, 88, 88, 0.26); width:800px" class="p-5">
+            <h1>Ben kimim?</h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo asperiores necessitatibus repellendus incidunt esse tenetur architecto est deleniti vitae deserunt voluptas repellat voluptatum doloremque odit fuga, facere minima laboriosam cupiditate.
+            Voluptate nam, assumenda ratione, ex repudiandae quos placeat deleniti eligendi maiores cupiditate provident magni ea neque repellendus omnis nemo voluptatum excepturi? Obcaecati at provident quo consectetur, mollitia illo voluptatem odio.
+            Nulla assumenda molestiae cum perferendis. Praesentium maiores tenetur deserunt hic totam minima quisquam voluptatum, laboriosam, nobis soluta exercitationem unde corporis commodi, molestias consequatur assumenda nam recusandae mollitia temporibus ipsa at!
+            Deserunt, labore repellat unde libero, inventore amet nihil saepe fuga cupiditate maxime tempore accusamus aliquid quo eligendi exercitationem. Quos labore voluptatibus odio cupiditate ea illo excepturi, libero aliquam eius nostrum?
+            Quisquam autem nisi veritatis consequuntur natus deleniti recusandae eligendi cupiditate est rerum, adipisci ab iste asperiores tenetur, quo ea? A qui reiciendis amet aspernatur dolores, corrupti esse sit iste rerum?
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <!-- MDB -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"
+    ></script>
+    <script>import { Alert, initMDB } from "mdb-ui-kit";
+
+      initMDB({ Alert });</script>
+    <script src="{% static 'js/app.js' %}"></script>
+  </body>
+</html>
